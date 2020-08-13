@@ -4,7 +4,7 @@ The 'data' folder contains a subdirectory 'features' with the dataset. The subdi
 
 This code was tesded on Windows 10 and R version 3.5.1 with library versions:
 
-caret: 6.8-81
+caret: 6.0-81
 
 dplyr: 0.7.8
 
