@@ -8,6 +8,12 @@ library(randomForest)
 library(e1071)
 library(GA)
 
+# R version 3.6.0 changed its random number generator. We need the following before set.seed() to have consistent results if you are running R >= 3.6.0
+if(as.integer(version$major) > 3 ||
+   (as.integer(version$major) == 3 && as.numeric(version$minor) >= 0.6)){
+     RNGkind(sample.kind = "Rounding")
+}
+
 constants <- list()
 
 constants$its <- 10 # Number of iterations for the classification experiment.

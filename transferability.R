@@ -34,13 +34,13 @@ for(u in targetUsers){
   tmptest <- userdata[-idxs,]
   testset <- rbind(testset, tmptest)
 }
-# Nomralize data
+# Normalize data
 trainset <- cbind(userid=trainset[,1], normalize(trainset[,2:ncol(trainset)]))
 
 # Read generated profiles
 profiles <- read.csv(paste0(dirPath,"profile.csv"))
 
-# Remove users that were not successfull with random forest.
+# Remove users that were not successful with random forest.
 profiles <- profiles[profiles$userid %in% success.users,]
 
 n <- nrow(profiles)
@@ -70,7 +70,7 @@ count.nb <- sum(equals)
 count.conf.nb / n
 count.nb / n
 
-# knn, k=1
+# knn
 set.seed(constants$seed)
 m.knn <- knn3(userid ~., trainset, k=1)
 equals <- profiles$userid == predict(m.knn, profiles, type="class")
